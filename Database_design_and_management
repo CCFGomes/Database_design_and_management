@@ -1,6 +1,16 @@
 -- Creating the database
 
-CREATE DATABASE DB_PG4E;
+-- Initial Database Setup
+/*
+Host:     pg.pg4e.com 
+Port:     5432 
+Database: pg4e_73285570e1 
+User:     pg4e_73285570e1 
+Password:  (hide/show copy) 
+
+
+psql -h pg.pg4e.com -p 5432 -U pg4e_73285570e1 pg4e_73285570e1
+*/
 
 -- Creating the table pg4e_debug
 
