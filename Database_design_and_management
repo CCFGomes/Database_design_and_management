@@ -1,0 +1,120 @@
+-- Creating the database
+
+CREATE DATABASE DB_PG4E;
+
+-- Creating the table pg4e_debug
+
+CREATE TABLE pg4e_debug (
+  id SERIAL,
+  query VARCHAR(4096),
+  result VARCHAR(4096),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(id)
+);
+
+-- View it's content
+
+SELECT query, result, created_at FROM pg4e_debug;
+
+-- 
+CREATE TABLE pg4e_result (
+  id SERIAL,
+  link_id INTEGER UNIQUE,
+  score FLOAT,
+  title VARCHAR(4096),
+  note VARCHAR(4096),
+  debug_log VARCHAR(8192),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP
+);
+
+# Inserting some data
+
+-- Create the table ages
+
+CREATE TABLE ages ( 
+  name VARCHAR(128), 
+  age INTEGER
+);
+
+-- Make sure the table is empty by deleting any rows that you previously inserted, then insert these rows (and only these rows) with the following commands:
+
+DELETE FROM ages;
+INSERT INTO ages (name, age) VALUES ('Cody', 34);
+INSERT INTO ages (name, age) VALUES ('Darla', 35);
+INSERT INTO ages (name, age) VALUES ('Franko', 38);
+INSERT INTO ages (name, age) VALUES ('Saman', 31);
+INSERT INTO ages (name, age) VALUES ('Toluwani', 15);
+
+# SERIAL fields / Auto Increment
+/* 
+Create a table named automagic with the following fields:
+An id field that is an auto incrementing serial field.
+A name field that allows up to 32 characters but no more This field is required. (PostgreSQL Constraints)
+A height field that is a floating point number that is required. 
+*/
+
+CREATE TABLE automagic (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(32) NOT NULL,
+    height FLOAT NOT NULL
+);
+
+# Musical Track Database
+/*
+This application will read an iTunes library in comma-separated-values (CSV) and produce a table as specified below.
+Download this file https://www.pg4e.com/tools/sql/library.csv into the folder on system where you are running your psql client
+*/
+--Create table track_raw
+
+CREATE TABLE track_raw
+ (title TEXT, artist TEXT, album TEXT,
+  count INTEGER, rating INTEGER, len INTEGER);
+
+--  Load it into the track_raw table using the psql \copy command.
+
+\copy track_raw(title,artist,album,count,rating,len) FROM 'library.csv' WITH DELIMITER ',' CSV;
+
+-- View the data
+
+SELECT title, album FROM track_raw ORDER BY title LIMIT 3;
+
+# Entering Many-to-One Data - Automobiles
+
+-- Create tables make and model
+
+CREATE TABLE make (
+    id SERIAL,
+    name VARCHAR(128) UNIQUE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE model (
+  id SERIAL,
+  name VARCHAR(128),
+  make_id INTEGER REFERENCES make(id) ON DELETE CASCADE,
+  PRIMARY KEY(id)
+);
+
+-- Insert data into the tables make and model
+
+INSERT INTO (make, model) VALUES('Hyundai','Excel');
+INSERT INTO (make, model) VALUES ('Hyundai', 'Genesis');
+INSERT INTO (make, model) VALUES ('Volkswagen', 'Tiguan 4motion');
+INSERT INTO (make, model) VALUES('Hyundai','Equus');
+INSERT INTO (make, model) VALUES('Hyundai','Excel');
+INSERT INTO (make, model) VALUES ('Hyundai', 'Genesis');
+INSERT INTO (make, model) VALUES ('Volkswagen', 'Tiguan 4motion');
+
+
+
+
+
+
+
+
+
+
+
+
+
