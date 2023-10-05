@@ -1,16 +1,8 @@
 -- Creating the database
 
 -- Initial Database Setup
-/*
-Host:     pg.pg4e.com 
-Port:     5432 
-Database: pg4e_73285570e1 
-User:     pg4e_73285570e1 
-Password:  (hide/show copy) 
 
-
-psql -h pg.pg4e.com -p 5432 -U pg4e_73285570e1 pg4e_73285570e1
-*/
+-- psql -h pg.pg4e.com -p 5432 -U pg4e_73285570e1 pg4e_73285570e1
 
 -- Creating the table pg4e_debug
 
@@ -47,7 +39,7 @@ CREATE TABLE ages (
   age INTEGER
 );
 
--- Make sure the table is empty by deleting any rows that you previously inserted, then insert these rows (and only these rows) with the following commands:
+-- Make sure the table is empty by deleting any rows that you previously inserted, then insert values
 
 DELETE FROM ages;
 INSERT INTO ages (name, age) VALUES ('Cody', 34);
@@ -70,11 +62,10 @@ CREATE TABLE automagic (
     height FLOAT NOT NULL
 );
 
-# Musical Track Database
-/*
-This application will read an iTunes library in comma-separated-values (CSV) and produce a table as specified below.
-Download this file https://www.pg4e.com/tools/sql/library.csv into the folder on system where you are running your psql client
-*/
+-- Musical Track Database
+
+-- Download this file https://www.pg4e.com/tools/sql/library.csv into the folder on system where you are running your psql client
+
 --Create table track_raw
 
 CREATE TABLE track_raw
@@ -89,7 +80,7 @@ CREATE TABLE track_raw
 
 SELECT title, album FROM track_raw ORDER BY title LIMIT 3;
 
-# Entering Many-to-One Data - Automobiles
+-- Entering Many-to-One Data - Automobiles
 
 -- Create tables make and model
 
@@ -116,7 +107,31 @@ INSERT INTO (make, model) VALUES('Hyundai','Excel');
 INSERT INTO (make, model) VALUES ('Hyundai', 'Genesis');
 INSERT INTO (make, model) VALUES ('Volkswagen', 'Tiguan 4motion');
 
+-- Building a many-to-many roster
+-- Create the tables student, course and the junction table roster
 
+CREATE TABLE student (
+    id SERIAL,
+    name VARCHAR(128) UNIQUE,
+    PRIMARY KEY(id)
+);
+
+DROP TABLE course CASCADE;
+CREATE TABLE course (
+    id SERIAL,
+    title VARCHAR(128) UNIQUE,
+    PRIMARY KEY(id)
+);
+
+DROP TABLE roster CASCADE;
+CREATE TABLE roster (
+    id SERIAL,
+    student_id INTEGER REFERENCES student(id) ON DELETE CASCADE,
+    course_id INTEGER REFERENCES course(id) ON DELETE CASCADE,
+    role INTEGER,
+    UNIQUE(student_id, course_id),
+    PRIMARY KEY (student_id, course_id)
+);
 
 
 
