@@ -130,7 +130,7 @@ CREATE TABLE roster (
     course_id INTEGER REFERENCES course(id) ON DELETE CASCADE,
     role INTEGER,
     UNIQUE(student_id, course_id),
-    PRIMARY KEY (student_id, course_id)
+    PRIMARY KEY (id)
 );
 
 
