@@ -14,10 +14,24 @@ CREATE TABLE pg4e_debug (
   PRIMARY KEY(id)
 );
 
--- View it's content
+-- Inserting data into the pg4e_debug table
+INSERT INTO pg4e_debug (query, result) VALUES
+    ('SELECT id, query, result, created_at FROM pg4e_debug', 'Success'),
+    ('SELECT id, keystr, valstr FROM pg4e_meta', 'Success'),
+    ('SELECT track.title, album.title FROM track JOIN album ON track.album_id = album.id ORDER BY track.title LIMIT 3', 'Success');
+
+-- Retrieving it's content
 
 SELECT query, result, created_at FROM pg4e_debug;
-
+query                         | result  |         created_at         
+------------------------------------------------------+---------+----------------------------
+ SELECT id, query, result, created_at FROM pg4e_debug | Success | 2023-10-04 23:52:32.767675
+ SELECT id, keystr, valstr FROM pg4e_meta             | Success | 2023-10-04 23:52:32.775473
+ SELECT track.title, album.title                     +| Success | 2023-10-04 23:52:32.791638
+     FROM track                                      +|         | 
+     JOIN album ON track.album_id = album.id         +|         | 
+     ORDER BY track.title LIMIT 3;                    |         | 
+(3 rows)
 -- 
 CREATE TABLE pg4e_result (
   id SERIAL,
@@ -134,7 +148,27 @@ CREATE TABLE roster (
 );
 
 
+--  list all tables in the current schema
 
+\dt
+               List of relations
+ Schema |    Name     | Type  |      Owner      
+--------+-------------+-------+-----------------
+ public | ages        | table | pg4e_73285570e1
+ public | album       | table | pg4e_73285570e1
+ public | automagic   | table | pg4e_73285570e1
+ public | course      | table | pg4e_73285570e1
+ public | make        | table | pg4e_73285570e1
+ public | model       | table | pg4e_73285570e1
+ public | pg4e_debug  | table | pg4e_73285570e1
+ public | pg4e_meta   | table | pg4e_73285570e1
+ public | pg4e_result | table | pg4e_73285570e1
+ public | roster      | table | pg4e_73285570e1
+ public | student     | table | pg4e_73285570e1
+ public | track       | table | pg4e_73285570e1
+ public | track_raw   | table | pg4e_73285570e1
+ 
+(13 rows)
 
 
 
