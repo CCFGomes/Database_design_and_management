@@ -7,11 +7,15 @@ A name field that allows up to 32 characters but no more This field is required.
 A height field that is a floating point number that is required. 
 */
 
+
 CREATE TABLE automagic (
     id SERIAL PRIMARY KEY,
     name VARCHAR(32) NOT NULL,
     height FLOAT NOT NULL
 );
+
+
+
 
 /*
 The id column is defined as a "SERIAL" data type. This means that, for each new row added to the automagic table, 
