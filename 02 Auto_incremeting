@@ -1,4 +1,4 @@
-# SERIAL fields / Auto Increment
+-- Serial fields / Auto Increment
 
 /* 
 Create a table named automagic with the following fields:
