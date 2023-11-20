@@ -1,3 +1,4 @@
+-- Create a table, and the inverted index; Then, insert into the table values
 CREATE TABLE docs02 (id SERIAL, doc TEXT, PRIMARY KEY(id));
 CREATE TABLE
 
@@ -18,6 +19,8 @@ INSERT INTO docs02 (doc) VALUES
  ('science You should have at least one hypothesis about what the problem'),
  ('is If there are two or more possibilities try to think of a test that');
 INSERT 0 10
+
+-- Create a stop_words table and insert into it values
 CREATE TABLE stop_words (word TEXT unique);
 CREATE TABLE
 
@@ -33,6 +36,8 @@ INSERT INTO invert02 (doc_id, keyword)
  WHERE keyword NOT IN (SELECT word FROM stop_words)
  ORDER BY id;
 INSERT 0 89
+
+-- Retrieve the first 10 rows of the inverted index
 SELECT keyword, doc_id FROM invert02 ORDER BY keyword, doc_id LIMIT 10;
  keyword | doc_id 
 ---------+--------
