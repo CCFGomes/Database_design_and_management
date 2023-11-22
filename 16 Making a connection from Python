@@ -1,22 +1,22 @@
 -- Download simple.py and hidden-dist.py, and rename hidden-dist.py to hidden.py:
 
-wget https://www.pg4e.com/code/simple.py
-wget https://www.pg4e.com/code/hidden-dist.py
-mv hidden-dist.py hidden.py
+$ wget https://www.pg4e.com/code/simple.py
+$ wget https://www.pg4e.com/code/hidden-dist.py
+$ mv hidden-dist.py hidden.py
 
 --Edit hidden.py
 
-nano hidden.py
+$ nano hidden.py
 
 -- Inside hidden.py, replace the placeholder password with your actual password.
 
 -- install psycopg2 library
 
-pip3 install psycopg2
+$ pip3 install psycopg2
 
 -- Run simple.py
 
-python3 simple.py
+$ python3 simple.py
 
 /*
 DROP TABLE IF EXISTS pythonfun CASCADE;
