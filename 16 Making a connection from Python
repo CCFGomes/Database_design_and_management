@@ -32,8 +32,7 @@ psycopg2.errors.UndefinedColumn: column "mistake" does not exist
 LINE 1: SELECT line FROM pythonfun WHERE mistake=5;
 */
 
--- Once this runs, you should have some records in the pythonfun table 
--- You can check that the records are in the table by using psql and running:
+-- Check that the records are in the table by using psql and running:
 
 SELECT line FROM pythonfun WHERE line LIKE 'Have a nice%';
      line        
