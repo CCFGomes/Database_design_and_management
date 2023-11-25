@@ -1,4 +1,4 @@
-Loading JSON from PokéAPI: retrieving data from the PokéAPI and store the resulting data in a database.
+-- Loading JSON from PokéAPI: retrieving data from the PokéAPI and store the resulting data in a database.
 
 $ pip3 install psycopg2 
 $ pip3 install hidden 
