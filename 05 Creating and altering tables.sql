@@ -1,4 +1,4 @@
--- Creating a new database
+-- Creatinga new database
 
 /* Connecting to PostgreSQL database
 
