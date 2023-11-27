@@ -1,7 +1,6 @@
 -- Creating a Stored Procedure
-/*Connect to the PostgreSQL database
-psql -h pg.pg4e.com -p 5432 -U pg4e_73285570e1 pg4e_73285570e1 
-*/
+-- Connect to the PostgreSQL database
+
 -- Create the table keyvalue
 
 CREATE TABLE keyvalue ( 
