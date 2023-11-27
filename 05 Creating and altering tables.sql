@@ -1,9 +1,6 @@
--- Creatinga new database
+-- Creating a new database
 
-/* Connecting to PostgreSQL database
-
-psql -h pg.pg4e.com -p 5432 -U pg4e_73285570e1 pg4e_73285570e1
-*/
+-- Connecting to PostgreSQL database
 
 -- Creating the table pg4e_debug
 
