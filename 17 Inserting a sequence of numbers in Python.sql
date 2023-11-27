@@ -11,7 +11,7 @@ for i in range(300) :
 
 -- install psycopg2 library
 
-$ pip3 install psycopg2
+pip3 install psycopg2
 
 -- Importe psycopg2 and hidden 
 
