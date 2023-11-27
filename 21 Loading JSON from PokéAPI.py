@@ -1,4 +1,4 @@
--- Loading JSON from PokéAPI: retrieving data from the PokéAPI and store the resulting data in a database.
+# Loading JSON from PokéAPI: retrieving data from the PokéAPI and store the resulting data in a database.
 
 $ pip3 install psycopg2 
 $ pip3 install hidden 
@@ -10,7 +10,7 @@ import myutils
 import requests
 import json
 
--- load the secrets
+# load the secrets
 secrets = hidden.secrets()  
 
 conn = psycopg2.connect(host=secrets['host'],
@@ -19,13 +19,13 @@ conn = psycopg2.connect(host=secrets['host'],
         user=secrets['user'],
         password=secrets['pass'],
         connect_timeout=3)
--- You can include a print statement to display the database connection parameters as following:
--- print(f'Connected to database {secrets["database"]} on {secrets["host"]}:{secrets["port"]} as user {secrets["user"]}')
+# You can include a print statement to display the database connection parameters as following:
+# print(f'Connected to database {secrets["database"]} on {secrets["host"]}:{secrets["port"]} as user {secrets["user"]}')
 
--- Create a cursor object
+# Create a cursor object
 cur = conn.cursor()
 
--- Create the pokeapi table if not exists
+# Create the pokeapi table if not exists
 defaulturl = 'https://pokeapi.co/api/v2/pokemon/1/'
 print('If you want to restart the spider, run')
 print('DROP TABLE IF EXISTS pokeapi CASCADE;')
