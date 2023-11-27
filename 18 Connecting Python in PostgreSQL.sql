@@ -1,10 +1,10 @@
 -- Connecting Python to PostgreSQL
 
 -- In psql, check out tables:
-=> \dt
+\dt
 
 -- Clean up tables from previous assignments to prevent running out of space
-=> DROP TABLE table CASCADE;
+DROP TABLE table CASCADE;
 
 -- Ensure you have a database connector. Install psycopg2 if not already installed:
 $ pip3 install psycopg2
