@@ -1,24 +1,24 @@
--- Download simple.py and hidden-dist.py, and rename hidden-dist.py to hidden.py:
+# Download simple.py and hidden-dist.py, and rename hidden-dist.py to hidden.py:
 
-$ wget https://www.pg4e.com/code/simple.py
-$ wget https://www.pg4e.com/code/hidden-dist.py
-$ mv hidden-dist.py hidden.py
+wget https://www.pg4e.com/code/simple.py
+wget https://www.pg4e.com/code/hidden-dist.py
+mv hidden-dist.py hidden.py
 
---Edit hidden.py
+# Edit hidden.py
 
-$ nano hidden.py
+nano hidden.py
 
--- Inside hidden.py, replace the placeholder password with your actual password.
+# Inside hidden.py, replace the placeholder password with your actual password.
 
--- Then, install psycopg2 library
+# Then, install psycopg2 library
 
-$ pip3 install psycopg2
+pip3 install psycopg2
 
--- Run simple.py
+# Run simple.py
 
-$ python3 simple.py
+python3 simple.py
 
-/*
+'''
 DROP TABLE IF EXISTS pythonfun CASCADE;
 CREATE TABLE pythonfun (id SERIAL, line TEXT);
 SELECT id, line FROM pythonfun WHERE id=5;
@@ -30,9 +30,9 @@ Traceback (most recent call last):
     cur.execute(sql)
 psycopg2.errors.UndefinedColumn: column "mistake" does not exist
 LINE 1: SELECT line FROM pythonfun WHERE mistake=5;
-*/
+'''
 
--- Check that the records are in the table by using psql and running:
+# Check that the records are in the table by using psql and running:
 
 SELECT line FROM pythonfun WHERE line LIKE 'Have a nice%';
      line        
