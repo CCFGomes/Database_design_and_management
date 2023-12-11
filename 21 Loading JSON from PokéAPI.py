@@ -1,8 +1,8 @@
 # Loading JSON from PokéAPI: retrieving data from the PokéAPI and store the resulting data in a database.
 
-$ pip3 install psycopg2 
-$ pip3 install hidden 
-$ python3
+pip3 install psycopg2 
+pip3 install hidden 
+python3
 import psycopg2
 import hidden
 import time
@@ -41,12 +41,12 @@ cur.execute(sql)
 
 conn.commit()    
 
--- URL for the PokeAPI
+# URL for the PokeAPI
 base_url = 'https://pokeapi.co/api/v2/pokemon/'
 
---  load the first 100 Pokémon JSON documents from the PokéAPI and store them in a table
--- loop through the PokéAPI and retrieve the JSON data for urls ending in 1..100 and store it in the pokeapi table
--- loop through the numbers 1..100 and modify this URL (https://pokeapi.co/api/v2/pokemon/1) to retrieve the data for that item
+# load the first 100 Pokémon JSON documents from the PokéAPI and store them in a table
+# loop through the PokéAPI and retrieve the JSON data for urls ending in 1..100 and store it in the pokeapi table
+# loop through the numbers 1..100 and modify this URL (https://pokeapi.co/api/v2/pokemon/1) to retrieve the data for that item
 for i in range(1, 101):
     url = f'{base_url}{i}/'
     try:
