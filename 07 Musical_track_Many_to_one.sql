@@ -60,6 +60,7 @@ JOIN album ON track.album_id = album.id
 ORDER BY track.title
 LIMIT 3;
 
+-- Output
            title            |               title                
 ----------------------------+------------------------------------
  A Boy Named Sue (live)     | The Legend Of Johnny Cash
