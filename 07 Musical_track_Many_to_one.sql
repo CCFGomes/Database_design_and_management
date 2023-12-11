@@ -1,4 +1,4 @@
---Musical tracks many-to-one
+-- Musical tracks many-to-one
 
 -- Create the 'album' table
 
