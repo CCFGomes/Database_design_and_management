@@ -1,4 +1,4 @@
--- The drop table, creae table, and insert into may be skipped since we alredy have done it in the last assignment.
+-- The drop table, create table, and insert into may be skipped since we alredy have done it in the last assignment.
 DROP TABLE docs03;
 DROP TABLE
 
